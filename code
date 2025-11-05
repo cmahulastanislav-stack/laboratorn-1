@@ -1,0 +1,55 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.ForegroundColor = ConsoleColor.Cyan;
+        Console.WriteLine("=== Онлайн-магазин подарунків ===\n");
+        Console.ResetColor();
+
+        // Ціни товарів
+        double priceBear = 350;
+        double priceMug = 150;
+        double priceBox = 50;
+        double priceCard = 25;
+        double pricePerfume = 500;
+
+        // Введення кількості від користувача
+        Console.Write("Введіть кількість ведмедиків: ");
+        double qBear = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введіть кількість кружок: ");
+        double qMug = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введіть кількість подарункових коробок: ");
+        double qBox = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введіть кількість листівок: ");
+        double qCard = Convert.ToDouble(Console.ReadLine());
+
+        Console.Write("Введіть кількість міні-парфумів: ");
+        double qPerfume = Convert.ToDouble(Console.ReadLine());
+
+        // Обчислення вартості
+        double totalBear = qBear * priceBear;
+        double totalMug = qMug * priceMug;
+        double totalBox = qBox * priceBox;
+        double totalCard = qCard * priceCard;
+        double totalPerfume = qPerfume * pricePerfume;
+
+        double totalSum = totalBear + totalMug + totalBox + totalCard + totalPerfume;
+
+        // Генерація випадкової знижки
+        Random rand = new Random();
+        double discount = Math.Round(rand.NextDouble() * 10, 2); // 0–10%
+
+        double totalWithDiscount = Math.Round(totalSum * (1 - discount / 100), 2);
+
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine($"\nЗагальна сума: {totalSum} грн");
+        Console.WriteLine($"Знижка: {discount}%");
+        Console.WriteLine($"Сума зі знижкою: {totalWithDiscount} грн");
+        Console.ResetColor();
+    }
+}
